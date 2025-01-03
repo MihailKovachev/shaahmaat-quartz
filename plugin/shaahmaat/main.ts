@@ -58,7 +58,7 @@ export const ShaahMaat: QuartzTransformerPlugin<ShaahMaatSettings> = (opts?: Sha
 						if (node.tagName === "code") {
 							let language = node.properties?.dataLanguage as string;
 
-							if (language.startsWith("shaahmaat-chessboard")) {
+							if (language !== undefined && language.startsWith("shaahmaat-chessboard")) {
 								let boardIndex = parseInt(language.substring(language.lastIndexOf('-') + 1));
 								
 								let boardHtmlEl = ShaahMaatRenderer.createChessBoardElement(boards[boardIndex], opts);
